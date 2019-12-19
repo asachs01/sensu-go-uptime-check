@@ -46,7 +46,7 @@ Flags:
 
 Assets are the best way to make use of this plugin. If you're not using an asset, please consider doing so! If you're using sensuctl 5.13 or later, you can use the following command to add the asset: 
 
-`sensuctl asset add sensu-plugins/sensu-go-uptime-checks`
+`sensuctl asset add asachs01/sensu-go-uptime-checks`
 
 If you're using an earlier version of sensuctl, you can download the asset definition from [this project's Bonsai asset index page][2], download a copy of the handler plugin from [releases][1], or create an executable script from this source.
 
