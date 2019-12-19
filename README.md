@@ -46,14 +46,14 @@ Flags:
 
 Assets are the best way to make use of this plugin. If you're not using an asset, please consider doing so! If you're using sensuctl 5.13 or later, you can use the following command to add the asset: 
 
-`sensuctl asset add sensu-plugins/sensu-go-uptime-check`
+`sensuctl asset add sensu-plugins/sensu-go-uptime-checks`
 
 If you're using an earlier version of sensuctl, you can download the asset definition from [this project's Bonsai asset index page][2], download a copy of the handler plugin from [releases][1], or create an executable script from this source.
 
 From the local path of the sensu-go-uptime-checks repository:
 
 ```
-go build -o /usr/local/bin/sensu-go-uptime-check main.go
+go build -o /usr/local/bin/sensu-go-uptime-checks main.go
 ```
 
 #### Asset definition
@@ -128,7 +128,8 @@ This project uses `gopsutil` and thus depends on the systems that it supports. F
 ## Contributing
 
 
-See the [Sensu Go repository CONTRIBUTING.md](https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md) for information about contributing to this plugin. 
+See the [Sensu Go repository CONTRIBUTING.md][3] for information about contributing to this plugin. 
 
 [1]: https://github.com/asachs01/sensu-go-uptime-checks/releases
 [2]: https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-checks
+[3]: https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md
