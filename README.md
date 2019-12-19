@@ -121,12 +121,6 @@ This project uses `gopsutil` and thus depends on the systems that it supports. F
 * Windows (states not supported, but I've confirmed that it is)
 * Solaris
 
-### Use this plugin with Sensu Go
-
-To use the included handlers with Sensu Go, use the `--map-go-event-into-ruby` argument or set environment variable `SENSU_MAP_GO_EVENT_INTO_RUBY=1`.
-
-Make sure the required handler configuration JSON exists under `/etc/sensu/conf.d/` or at a path in the colon-separated list of files in the environment variable `SENSU_CONFIG_FILES`.
-
 ### Example output
 
 ![screenshot_of_check_result](http://share.sachshaus.net/ddbeec586345/Screen%252520Shot%2525202019-07-29%252520at%25252011.05.48%252520PM.png)
