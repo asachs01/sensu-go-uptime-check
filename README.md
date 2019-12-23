@@ -1,5 +1,5 @@
-[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-checks)
-[![Build Status](https://travis-ci.org/asachs01/sensu-go-uptime-checks.svg?branch=master)](https://travis-ci.org/asachs01/sensu-go-uptime-checks)
+[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-check)
+[![Build Status](https://travis-ci.org/asachs01/sensu-go-uptime-check.svg?branch=master)](https://travis-ci.org/asachs01/sensu-go-uptime-check)
 
 ## Sensu Go Uptime Check Plugin
 
