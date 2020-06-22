@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/hako/durafmt"
 	"github.com/sensu/sensu-go/types"
 	"github.com/shirou/gopsutil/host"
 	"github.com/spf13/cobra"
@@ -99,7 +100,7 @@ func report(res string, uptimeSecs time.Duration) {
 	const checkName = "CheckUptime"
 	const metricName = "current_system_uptime"
 
-	msg := fmt.Sprintf("%s %s - value = %d | %s=%d\n", checkName, res, int64(uptimeSecs.Seconds()), metricName, int64(uptimeSecs.Seconds()))
+	msg := fmt.Sprintf("%s %s - value = %v | %s=%d\n", checkName, res, durafmt.Parse(uptimeSecs), metricName, int64(uptimeSecs.Seconds()))
 	io.WriteString(os.Stdout, msg)
 }
 
