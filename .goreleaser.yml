@@ -1,15 +1,16 @@
 builds:
-- 
+-
   env:
     - CGO_ENABLED=0
   main: ./main.go
   binary: bin/sensu-go-uptime-check
-  
+
   goos:
     - darwin
     - freebsd
     - linux
     - netbsd
+    - openbsd
     - solaris
     - windows
   goarch:
@@ -23,13 +24,21 @@ builds:
   ignore:
     - goos: freebsd
       goarch: arm
+    # cannot cross-build OpenBSD
+    # https://github.com/shirou/gopsutil/blob/987c9498805bdb933a13dac21fff44a9ee873318/Makefile#L28
+    - goos: openbsd
+      goarch: 386
+    - goos: openbsd
+      goarch: arm
+    - goos: openbsd
+      goarch: arm64
 
 checksum:
   name_template: "{{ .ProjectName }}_{{ .Version }}_sha256-checksums.txt"
 
-archive:
-  format: tar.gz
-  files:
-    - LICENSE
-    - README.md 
-    - CHANGELOG.md
+archives:
+  - format: tar.gz
+    files:
+      - LICENSE
+      - README.md
+      - CHANGELOG.md
