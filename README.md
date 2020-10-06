@@ -110,17 +110,6 @@ Install and setup plugins on [Sensu Core](https://docs.sensu.io/sensu-core/lates
 
 ## Additional notes
 
-### Supported Operating Systems
-
-This project uses `gopsutil` and thus depends on the systems that it supports. For this plugin, the following operating systems are supported:
-
-* Linux
-* FreeBSD
-* OpenBSD
-* Mac OS X
-* Windows (states not supported, but I've confirmed that it is)
-* Solaris
-
 ### Example output
 
 ![screenshot_of_check_result](http://share.sachshaus.net/ddbeec586345/Screen%252520Shot%2525202019-07-29%252520at%25252011.05.48%252520PM.png)
