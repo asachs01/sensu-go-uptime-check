@@ -1,5 +1,4 @@
 [![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-check)
-[![Build Status](https://travis-ci.org/asachs01/sensu-go-uptime-check.svg?branch=master)](https://travis-ci.org/asachs01/sensu-go-uptime-check)
 
 ## Sensu Go Uptime Check Plugin
 
@@ -46,14 +45,14 @@ Flags:
 
 Assets are the best way to make use of this plugin. If you're not using an asset, please consider doing so! If you're using sensuctl 5.13 or later, you can use the following command to add the asset: 
 
-`sensuctl asset add asachs01/sensu-go-uptime-checks`
+`sensuctl asset add asachs01/sensu-go-uptime-check`
 
 If you're using an earlier version of sensuctl, you can download the asset definition from [this project's Bonsai asset index page][2], download a copy of the handler plugin from [releases][1], or create an executable script from this source.
 
-From the local path of the sensu-go-uptime-checks repository:
+From the local path of the sensu-go-uptime-check repository:
 
 ```
-go build -o /usr/local/bin/sensu-go-uptime-checks main.go
+go build -o /usr/local/bin/sensu-go-uptime-check main.go
 ```
 
 #### Asset definition
@@ -63,9 +62,9 @@ go build -o /usr/local/bin/sensu-go-uptime-checks main.go
 type: Asset
 api_version: core/v2
 metadata:
-  name: sensu-go-uptime-checks
+  name: sensu-go-uptime-check
 spec:
-  url: https://assets.bonsai.sensu.io/1f967e65880ead0b4bfe13e331b3fc6f26ebfed2/sensu-go-uptime-checks_1.0.1_linux_amd64.tar.gz
+  url: https://assets.bonsai.sensu.io/1f967e65880ead0b4bfe13e331b3fc6f26ebfed2/sensu-go-uptime-check_1.0.1_linux_amd64.tar.gz
   sha512: 3d732f21611bb03dddc529c46b1bffd2b97f2a5b5ae7a935964a179adb26d5ccffa3ffaf0662380be4485d6d5e4295b0812ef1d22919e02ebb412c4eef1aff24
 ```
 
@@ -82,7 +81,7 @@ metadata:
 spec:
   command: sensu-go-uptime-check
   runtime_assets:
-  - sensu-go-uptime-checks
+  - sensu-go-uptime-check
   interval: 60
   publish: true
   output_metric_format: nagios_perfdata
@@ -119,6 +118,6 @@ Install and setup plugins on [Sensu Core](https://docs.sensu.io/sensu-core/lates
 
 See the [Sensu Go repository CONTRIBUTING.md][3] for information about contributing to this plugin. 
 
-[1]: https://github.com/asachs01/sensu-go-uptime-checks/releases
-[2]: https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-checks
+[1]: https://github.com/asachs01/sensu-go-uptime-check/releases
+[2]: https://bonsai.sensu.io/assets/asachs01/sensu-go-uptime-check
 [3]: https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md
