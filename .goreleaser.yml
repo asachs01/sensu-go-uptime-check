@@ -1,44 +1,45 @@
 builds:
--
-  env:
+  - env:
     - CGO_ENABLED=0
-  main: ./main.go
-  binary: bin/sensu-go-uptime-check
-
-  goos:
-    - darwin
-    - freebsd
-    - linux
-    - netbsd
-    - openbsd
-    - solaris
-    - windows
-  goarch:
-    - amd64
-    - 386
-    - arm
-    - arm64
-  goarm:
-    - 6
-    - 7
-  ignore:
-    - goos: freebsd
-      goarch: arm
-    # cannot cross-build OpenBSD
-    # https://github.com/shirou/gopsutil/blob/987c9498805bdb933a13dac21fff44a9ee873318/Makefile#L28
-    - goos: openbsd
-      goarch: 386
-    - goos: openbsd
-      goarch: arm
-    - goos: openbsd
-      goarch: arm64
+    main: main.go
+    ldflags: '-s -w -X github.com/sensu-community/sensu-plugin-sdk/version.build={{.Version}} -X github.com/sensu-community/sensu-plugin-sdk/version.commit={{.Commit}} -X github.com/sensu-community/sensu-plugin-sdk/version.date={{.Date}}'
+    # Set the binary output location to bin/ so archive will comply with Sensu Go Asset structure
+    binary: bin/{{ .ProjectName }}
+    goos:
+      - darwin
+      - linux
+      - windows
+      - openbsd
+    goarch:
+      - amd64
+      - 386
+      - arm
+      - arm64
+    goarm:
+      - 5
+      - 6
+      - 7
+    targets:
+      - darwin_amd64
+      - linux_386
+      - linux_amd64
+      - linux_arm_5
+      - linux_arm_6
+      - linux_arm_7
+      - linux_arm64
+      - openbsd_amd64
+      - windows_386
+      - windows_amd64
 
 checksum:
-  name_template: "{{ .ProjectName }}_{{ .Version }}_sha256-checksums.txt"
+  name_template: "{{ .ProjectName }}_{{ .Version }}_sha512-checksums.txt"
+  algorithm: sha512
 
 archives:
-  - format: tar.gz
+  - id: tar
+    format: tar.gz
     files:
       - LICENSE
       - README.md
       - CHANGELOG.md
+      

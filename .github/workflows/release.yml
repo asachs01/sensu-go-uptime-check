@@ -1,44 +1,26 @@
-builds:
-  - env:
-    - CGO_ENABLED=0
-    main: main.go
-    ldflags: '-s -w -X github.com/sensu-community/sensu-plugin-sdk/version.build={{.Version}} -X github.com/sensu-community/sensu-plugin-sdk/version.commit={{.Commit}} -X github.com/sensu-community/sensu-plugin-sdk/version.date={{.Date}}'
-    # Set the binary output location to bin/ so archive will comply with Sensu Go Asset structure
-    binary: bin/{{ .ProjectName }}
-    goos:
-      - darwin
-      - linux
-      - windows
-      - openbsd
-    goarch:
-      - amd64
-      - 386
-      - arm
-      - arm64
-    goarm:
-      - 5
-      - 6
-      - 7
-    targets:
-      - darwin_amd64
-      - linux_386
-      - linux_amd64
-      - linux_arm_5
-      - linux_arm_6
-      - linux_arm_7
-      - linux_arm64
-      - openbsd_amd64
-      - windows_386
-      - windows_amd64
+name: goreleaser
 
-checksum:
-  name_template: "{{ .ProjectName }}_{{ .Version }}_sha512-checksums.txt"
-  algorithm: sha512
+on:
+  push:
+    tags:
+      - '*'
 
-archives:
-  - id: tar
-    format: tar.gz
-    files:
-      - LICENSE
-      - README.md
-      - CHANGELOG.md
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+      - name: Set up Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v1
+        with:
+          version: latest
+          args: release --rm-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
